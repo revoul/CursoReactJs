@@ -1,0 +1,11 @@
+{
+  "name": "cursoReactJs",
+  "dependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "react": "^0.13.3"
+  },
+  "scripts":{
+  	"build": "app.js -t babelify"
+  }
+}
