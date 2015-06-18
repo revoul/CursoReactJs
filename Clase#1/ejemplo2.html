@@ -1,0 +1,38 @@
+<!<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Curso Platzi - React.js</title>
+	</head>
+	<body>
+		<section id="container"></section>
+
+
+		<script src="http://fb.me/react-0.13.3.js"></script>
+		<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
+		<script type="text/jsx;harmony=true">
+			var misObjetos = [
+				{number: 1, name: 'Primero'},
+				{number: 2, name: 'Segundo'},
+				{number: 3, name: 'Tercero'}
+			];
+			
+			class MyClase extends React.Component{
+				render(){
+					var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;
+					return <div> <img src={url} /> {this.props.name} </div>
+				}
+			}
+
+			var miObjeto = misObjetos[0];
+
+
+
+			React.render(
+				<MyClase name={miObjeto.name} number={miObjeto.number} />,
+				 document.getElementById('container')
+			 );
+
+		</script>
+	</body>
+</html>
