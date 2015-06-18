@@ -40,7 +40,7 @@
 					return <ul className="myTabla">
 								{
 									this.props.objetos.map((objeto) => {
-										return <MyRow name={objeto.name} number={objeto.number} />
+										return <MyRow key={objeto.number} name={objeto.name} number={objeto.number} />
 									})
 								}
 							</ul>
