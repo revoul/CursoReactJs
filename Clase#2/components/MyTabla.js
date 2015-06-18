@@ -3,9 +3,9 @@
 */
 
 import React from 'react';
-import MyRow form './MyRow';
+import MyRow from './MyRow';
 
-class MyTabla extends React.Component{
+export default class MyTabla extends React.Component{
 	render(){
 		return <ul className="myTabla">
 					{

@@ -6,6 +6,6 @@
     "react": "^0.13.3"
   },
   "scripts":{
-  	"build": "app.js -t babelify"
+  	"build": "browserify app.js > build.js -t babelify"
   }
 }

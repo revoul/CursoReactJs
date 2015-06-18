@@ -3,7 +3,7 @@
 */
 
 import React from 'react';
-import MyTabla form './components/MyTabla';
+import MyTabla from './components/MyTabla';
 
 var myArray = [
 	{number: 1, name: 'Primero'},
