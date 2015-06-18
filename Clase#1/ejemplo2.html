@@ -1,8 +1,9 @@
-<!<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Curso Platzi - React.js</title>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
 	</head>
 	<body>
 		<section id="container"></section>
@@ -11,25 +12,43 @@
 		<script src="http://fb.me/react-0.13.3.js"></script>
 		<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
 		<script type="text/jsx;harmony=true">
-			var misObjetos = [
+
+			var myArray = [
 				{number: 1, name: 'Primero'},
 				{number: 2, name: 'Segundo'},
 				{number: 3, name: 'Tercero'}
 			];
 			
-			class MyClase extends React.Component{
-				render(){
+			class Avatar extends React.Component{
+				render() {
 					var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;
-					return <div> <img src={url} /> {this.props.name} </div>
+					return <img src={url} className="avatar"/>
 				}
 			}
 
-			var miObjeto = misObjetos[0];
+			class MyRow extends React.Component{
+				render(){					
+					return	<li className="myRow">
+								<Avatar number={this.props.number}/>
+								{this.props.name}
+							</li>
+				}
+			}
 
-
+			class MyTabla extends React.Component{
+				render(){
+					return <ul className="myTabla">
+								{
+									this.props.objetos.map((objeto) => {
+										return <MyRow name={objeto.name} number={objeto.number} />
+									})
+								}
+							</ul>
+				}
+			}
 
 			React.render(
-				<MyClase name={miObjeto.name} number={miObjeto.number} />,
+				<MyTabla objetos={myArray} />,
 				 document.getElementById('container')
 			 );
 
