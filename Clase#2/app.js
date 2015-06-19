@@ -3,7 +3,7 @@
 */
 
 import React from 'react';
-import MyTabla from './components/MyTabla';
+import MyApp from './components/MyApp';
 
 var myArray = [
 	{number: 1, name: 'Primero'},
@@ -12,5 +12,6 @@ var myArray = [
 ];
 
 React.render(
-	<MyTabla objetos={myArray} />, document.getElementById('container')
+	<MyApp objetos={myArray} />,
+	document.getElementById('container')
  );

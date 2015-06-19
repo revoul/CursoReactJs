@@ -1,7 +1,9 @@
 .myRow{
 	margin:6px 0;
 }
-.myTabla{}
+.myTabla{
+	width: 300px;
+}
 .avatar{
 	width:50px;	
 	margin-right: 12px;
