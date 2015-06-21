@@ -6,9 +6,6 @@ import React from 'react';
 import MyRow from './MyRow';
 
 export default class MyTabla extends React.Component{
-	growl(){
-		
-	}
 	render(){
 		return <ul className="myTabla">
 					{
@@ -17,7 +14,7 @@ export default class MyTabla extends React.Component{
 							key={objeto.number}
 							name={objeto.name}
 							number={objeto.number}
-							growl={this.growl.bind(this)}/>
+							growl={this.props.onGrowl}/>
 						})
 					}
 				</ul>

@@ -12,6 +12,6 @@ var myArray = [
 ];
 
 React.render(
-	<MyApp objetos={myArray} />,
+	<MyApp />,
 	document.getElementById('container')
  );
