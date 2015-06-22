@@ -10,7 +10,7 @@ export default class MyChat extends React.Component {
 		return	<ul className="myChat">
 				{
 					this.props.messages.map((message) => {
-						return <MyMassage message={message} />
+						return <MyMassage key={message.id} message={message.text} />
 					})
 				}
 				</ul>

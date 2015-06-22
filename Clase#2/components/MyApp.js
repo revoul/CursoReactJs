@@ -3,6 +3,7 @@
 */
 
 import React from 'react';
+import uid from 'uid';
 import MyTabla from './MyTabla';
 import MyChat from './MyChat';
 
@@ -17,10 +18,9 @@ export default class MyApp extends React.Component{
 	}
 
 	onGrowl(name){
-		let message = `${name}, ${name}!!`;
-		this.state.messages.push({ text: message });
-		//let messages = this.state.messages;
-		//this.setState({messages: messages});
+		let text = `${name}, ${name}!!`;
+		let message = {id: uid(), text: text};
+		this.state.messages.push(message);
 		this.setState({messages : this.state.messages});
 	}
 
@@ -35,6 +35,4 @@ export default class MyApp extends React.Component{
 					<MyChat messages={this.state.messages} />
 				</div>
 	}
-
-//1:57
 }

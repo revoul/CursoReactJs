@@ -32,6 +32,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46,9 +48,7 @@ var Avatar = (function (_React$Component) {
 	function Avatar() {
 		_classCallCheck(this, Avatar);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
+		_get(Object.getPrototypeOf(Avatar.prototype), "constructor", this).apply(this, arguments);
 	}
 
 	_inherits(Avatar, _React$Component);
@@ -80,7 +80,7 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -91,6 +91,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _uid = require('uid');
+
+var _uid2 = _interopRequireDefault(_uid);
 
 var _MyTabla = require('./MyTabla');
 
@@ -108,9 +112,7 @@ var MyApp = (function (_React$Component) {
 		this.state = {
 			messages: []
 		};
-		console.log(this.onGrowl);
 		this.onGrowl = this.onGrowl.bind(this);
-		console.log(this.onGrowl);
 	}
 
 	_inherits(MyApp, _React$Component);
@@ -118,10 +120,9 @@ var MyApp = (function (_React$Component) {
 	_createClass(MyApp, [{
 		key: 'onGrowl',
 		value: function onGrowl(name) {
-			var message = '' + name + ', ' + name + '!!';
-			this.state.messages.push({ text: message });
-			//let messages = this.state.messages;
-			//this.setState({messages: messages});
+			var text = name + ', ' + name + '!!';
+			var message = { id: (0, _uid2['default'])(), text: text };
+			this.state.messages.push(message);
 			this.setState({ messages: this.state.messages });
 		}
 	}, {
@@ -135,6 +136,9 @@ var MyApp = (function (_React$Component) {
 				_react2['default'].createElement(_MyChat2['default'], { messages: this.state.messages })
 			);
 		}
+
+		//1:57
+
 	}]);
 
 	return MyApp;
@@ -143,7 +147,7 @@ var MyApp = (function (_React$Component) {
 exports['default'] = MyApp;
 module.exports = exports['default'];
 
-},{"./MyChat":4,"./MyTabla":7,"react":163}],4:[function(require,module,exports){
+},{"./MyChat":4,"./MyTabla":7,"react":163,"uid":164}],4:[function(require,module,exports){
 /*
 * Module dependencies
 */
@@ -155,6 +159,8 @@ Object.defineProperty(exports, '__esModule', {
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -174,9 +180,7 @@ var MyChat = (function (_React$Component) {
 	function MyChat() {
 		_classCallCheck(this, MyChat);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
+		_get(Object.getPrototypeOf(MyChat.prototype), 'constructor', this).apply(this, arguments);
 	}
 
 	_inherits(MyChat, _React$Component);
@@ -188,7 +192,7 @@ var MyChat = (function (_React$Component) {
 				'ul',
 				{ className: 'myChat' },
 				this.props.messages.map(function (message) {
-					return _react2['default'].createElement(_MyMessage2['default'], { message: message });
+					return _react2['default'].createElement(_MyMessage2['default'], { key: message.id, message: message.text });
 				})
 			);
 		}
@@ -215,6 +219,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -229,9 +235,7 @@ var MyMessage = (function (_React$Component) {
 	function MyMessage() {
 		_classCallCheck(this, MyMessage);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
+		_get(Object.getPrototypeOf(MyMessage.prototype), "constructor", this).apply(this, arguments);
 	}
 
 	_inherits(MyMessage, _React$Component);
@@ -242,7 +246,7 @@ var MyMessage = (function (_React$Component) {
 			return _react2["default"].createElement(
 				"li",
 				{ className: "message" },
-				this.props.message.text
+				this.props.message
 			);
 		}
 	}]);
@@ -266,6 +270,8 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
@@ -284,9 +290,7 @@ var MyRow = (function (_React$Component) {
 	function MyRow() {
 		_classCallCheck(this, MyRow);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
+		_get(Object.getPrototypeOf(MyRow.prototype), 'constructor', this).apply(this, arguments);
 	}
 
 	_inherits(MyRow, _React$Component);
@@ -327,6 +331,8 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
@@ -345,9 +351,7 @@ var MyTabla = (function (_React$Component) {
 	function MyTabla() {
 		_classCallCheck(this, MyTabla);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
+		_get(Object.getPrototypeOf(MyTabla.prototype), 'constructor', this).apply(this, arguments);
 	}
 
 	_inherits(MyTabla, _React$Component);
@@ -20187,4 +20191,23 @@ module.exports = warning;
 },{"./emptyFunction":122,"_process":8}],163:[function(require,module,exports){
 module.exports = require('./lib/React');
 
-},{"./lib/React":36}]},{},[1]);
+},{"./lib/React":36}],164:[function(require,module,exports){
+/**
+ * Export `uid`
+ */
+
+module.exports = uid;
+
+/**
+ * Create a `uid`
+ *
+ * @param {String} len
+ * @return {String} uid
+ */
+
+function uid(len) {
+  len = len || 7;
+  return Math.random().toString(35).substr(2, len);
+}
+
+},{}]},{},[1]);
