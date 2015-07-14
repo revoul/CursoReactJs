@@ -15,6 +15,13 @@ app.use('/', express.static(__dirname + '/public'));
 
 //console.log('__dirname: ' + __dirname);
 
+app.get('/usuarios', (req, res) => {
+	dbapi.usuarios.find((usuarios) => {
+		res.json(usuarios);
+	});
+});
+
+
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html');
 });
